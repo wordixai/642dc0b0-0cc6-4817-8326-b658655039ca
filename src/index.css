@@ -2,17 +2,163 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 The @apply directive should not be used with the group utility class.
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&family=Poppins:wght@400;600;700&display=swap');
+
 @layer base {
   :root {
-   
-  }
+    /* Pop Art Colors - 鲜艳的橙色和粉色撞色主题 */
+    --background: 25 100% 50%;  /* 鲜艳橙色 */
+    --foreground: 0 0% 10%;  /* 深色文字 */
 
-  .dark {
+    --primary: 330 100% 65%;  /* 鲜艳粉色 */
+    --primary-foreground: 0 0% 100%;
 
+    --secondary: 45 100% 55%;  /* 明黄色 */
+    --secondary-foreground: 0 0% 10%;
+
+    --accent: 180 100% 50%;  /* 青色 */
+    --accent-foreground: 0 0% 10%;
+
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 40%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --border: 0 0% 10%;
+    --input: 0 0% 90%;
+    --ring: 330 100% 65%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --radius: 0rem;  /* 直角边框，波普风格 */
   }
+}
+
+/* Pop Art Patterns - 波普圆点背景 */
+.pop-dots-pattern {
+  background-image:
+    radial-gradient(circle, hsl(330 100% 65%) 2px, transparent 2px),
+    radial-gradient(circle, hsl(45 100% 55%) 2px, transparent 2px);
+  background-size: 40px 40px, 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+.pop-dots-small {
+  background-image:
+    radial-gradient(circle, rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Comic Book Effect - 漫画风格边框 */
+.comic-border {
+  border: 4px solid hsl(0 0% 10%);
+  box-shadow:
+    8px 8px 0 hsl(0 0% 10%),
+    8px 8px 0 hsl(0 0% 10%) inset;
+}
+
+.comic-border-thin {
+  border: 3px solid hsl(0 0% 10%);
+  box-shadow: 5px 5px 0 hsl(0 0% 10%);
+}
+
+/* Handwritten Font Styles */
+.font-handwritten {
+  font-family: 'Permanent Marker', cursive;
+  letter-spacing: 0.05em;
+}
+
+.font-comic {
+  font-family: 'Bangers', cursive;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Pop Art Animations */
+@keyframes bounce-fun {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(-2deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.8) rotate(-5deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes star-burst {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.animate-bounce-fun {
+  animation: bounce-fun 2s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 1.5s ease-in-out infinite;
+}
+
+.animate-pop-in {
+  animation: pop-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.hover-bounce:hover {
+  animation: bounce-fun 0.5s ease-in-out;
+}
+
+/* Starburst Background Effect */
+.starburst-bg {
+  background:
+    linear-gradient(45deg, transparent 45%, hsl(330 100% 65%) 45%, hsl(330 100% 65%) 55%, transparent 55%),
+    linear-gradient(-45deg, transparent 45%, hsl(45 100% 55%) 45%, hsl(45 100% 55%) 55%, transparent 55%),
+    hsl(25 100% 50%);
+  background-size: 100px 100px;
+  background-position: 0 0, 0 0;
 }

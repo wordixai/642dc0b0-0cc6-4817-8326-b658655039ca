@@ -68,6 +68,11 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			fontFamily: {
+				comic: ['Bangers', 'cursive'],
+				handwritten: ['Permanent Marker', 'cursive'],
+				sans: ['Poppins', 'sans-serif'],
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -84,11 +89,35 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+				'bounce-fun': {
+					'0%, 100%': {
+						transform: 'translateY(0) rotate(0deg)'
+					},
+					'25%': {
+						transform: 'translateY(-10px) rotate(-2deg)'
+					},
+					'75%': {
+						transform: 'translateY(-5px) rotate(2deg)'
+					}
+				},
+				'wiggle': {
+					'0%, 100%': {
+						transform: 'rotate(0deg)'
+					},
+					'25%': {
+						transform: 'rotate(-3deg)'
+					},
+					'75%': {
+						transform: 'rotate(3deg)'
+					}
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'bounce-fun': 'bounce-fun 2s ease-in-out infinite',
+				'wiggle': 'wiggle 1.5s ease-in-out infinite',
 			}
 		}
 	},
